@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
-// import axios from 'axios';
 
 import Card from '../ActorCard';
 import Board from './styles';

@@ -7,5 +7,6 @@ export default async (text) => {
   if (text.substr(1, text.length - 2)) text.replace(' ', '+');
   const fetchURL = `https://api.themoviedb.org/3/search/person?api_key=${apiKey}&language=en-US&query=${text}`;
   const response = await axios.get(fetchURL);
+
   return response;
 };

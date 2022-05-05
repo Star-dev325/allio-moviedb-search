@@ -24,9 +24,9 @@ const SearchBox = ({ handleChange, searchedActorList, handleActorClick }) => {
 
   return (
     <SearchingContainer>
-      <TextArea id='name' onChange={handleChange} onBlur={() => { setDropdowHidden(true); }} onFocus={() => { setDropdowHidden(false); }} name='name' type='text' ref={inputRef} autoComplete='off' placeholder={'ENTER ACTOR\'S NAME...'} />
+      <TextArea id='name' onChange={handleChange} onFocus={() => { setDropdowHidden(false); }} name='name' type='text' ref={inputRef} autoComplete='off' placeholder={'ENTER ACTOR\'S NAME...'} />
       {
-        <DropDown display={dropdownHidden && searchedActorList ? 'true' : 'false'}>
+        <DropDown afterVisible={searchedActorList.length !== 0 && !dropdownHidden}>
           {
             searchedActorList.map(
               (item) => <DropDownItem

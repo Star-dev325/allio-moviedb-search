@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, {
+  useState, useEffect
+} from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 
@@ -15,12 +17,9 @@ function App({
   const [actorList, setActorList] = useState([]);
 
   useEffect(async () => {
-    getFetchData(text).then(
-      (response) => {
-        const { data } = response;
-        if (data) setAppState(data.results);
-      }
-    );
+    const response = await getFetchData(text);
+    const { data } = response;
+    if (data) setAppState(data.results);
   }, [text]);
 
   useEffect(() => {
@@ -43,6 +42,7 @@ function App({
       setActorList([]);
     } else setText(e.target.value);
   };
+
   return (
     <AppBody>
       <Header />
